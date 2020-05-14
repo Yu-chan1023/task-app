@@ -1,0 +1,13 @@
+<div class="panel-heading">
+  <div class="content__top">
+    <h4><%= task.title %></h4>
+    <p><%= task.priority.name %></p>
+  </div>
+  <h5><%= task.category.name %></h5>
+</div>
+<table class="table">
+  <div class="content__bottom">
+    <h4><%= task.content %></h4>
+    <h6><%= "#{task.start_time.strftime("%Y/%m/%d")}まで" %></h6>
+  </div>
+</table>

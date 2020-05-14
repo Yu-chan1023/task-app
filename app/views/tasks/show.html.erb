@@ -1,0 +1,20 @@
+<div class=show>
+  <div class="show__contena">
+    <h2 class="show__contena--title">見出し</h2>
+    <h4><%= @task.title %></h4>
+    <h2 class="show__contena--title">内容</h2>
+    <h4><%= @task.content %></h4>
+    <h2 class="show__contena--title">カテゴリ</h2>
+    <h4><%= @task.category.name %></h4>
+    <h2 class="show__contena--title">納期</h2>
+    <h4><%= "#{@task.start_time.strftime("%Y/%m/%d")}まで" %></h4>
+    <h2 class="show__contena--title">優先度</h2>
+    <h4><%= @task.priority.name %></h4>
+  </div>
+  <div class="show__item">
+    <%= link_to(content_tag(:i, '', class: 'fas fa-edit fa-2x'), edit_task_path(@task)) %>
+    <%= link_to task_path(@task), :method => :delete, data: { confirm: 'タスク完了ですか？' } do %>
+      <i class="far fa-trash-alt fa-2x"></i>
+    <% end %>
+  </div>
+</div>

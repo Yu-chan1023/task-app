@@ -1,0 +1,27 @@
+<div class="tasks__list">
+  <% @priority.tasks.each do |task| %>
+    <%= link_to task_path(task) do %>
+      <% if task.priority.id == 1 %>
+        <div class="panel panel-success">
+          <%= render partial: "tasks/task", locals: { task: task } %>
+        </div>
+      <% elsif task.priority.id == 2 %>
+        <div class="panel panel-primary">
+          <%= render partial: "tasks/task", locals: { task: task } %>
+        </div>
+      <% elsif task.priority.id == 3 %>
+        <div class="panel panel-info">
+          <%= render partial: "tasks/task", locals: { task: task } %>
+        </div>  
+      <% elsif task.priority.id == 4 %>
+        <div class="panel panel-warning">
+          <%= render partial: "tasks/task", locals: { task: task } %>
+        </div>   
+      <% elsif task.priority.id == 5 %>
+        <div class="panel panel-default">
+          <%= render partial: "tasks/task", locals: { task: task } %>
+        </div>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>

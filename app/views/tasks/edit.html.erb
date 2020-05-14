@@ -1,0 +1,27 @@
+<div class="form">
+  <div class="form__contena">
+    <%= form_with(model: @task, local: true) do |form| %>
+      <div class="form-group">
+        <%= form.label :start_time, "納期" %><br>
+        <%= form.date_select :start_time, class: "form-control", id: "formGroupExampleInput" %>
+      </div>
+      <div class="form-group">
+        <%= form.label :title, "タイトル" %><br>
+        <%= form.text_field :title, class: "form-control", id: "formGroupExampleInput", placeholder:"未入力" %>
+      </div>
+      <div class="form-group">
+        <%= form.label :content, "内容" %><br>
+        <%= form.text_area :content, class: "form-control", id: "formGroupExampleInput", placeholder:"未入力" %>
+      </div>
+      <div class="form-group">
+        <%= form.label :category_id, "カテゴリ" %><br>
+        <%= form.select :category_id, @categories.map{ |category| [category.name, category.id] }, {prompt:"選択してください"}, class: "form-control", id: "formGroupExampleInput" %>
+      </div>
+      <div class="form-group">
+        <%= form.label :priority_id, "優先度" %><br>
+        <%= form.select :priority_id, @priorities.map{ |priority| [priority.name, priority.id] }, {prompt:"選択してください"}, class: "form-control", id: "formGroupExampleInput" %>
+      </div>
+      <button type="submit" class="btn btn-default">保存</button>
+    </div>
+  </div>
+<% end %>
